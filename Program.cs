@@ -349,7 +349,8 @@ namespace etl
             {
                 int countN = 0;
                 int countR = 0;
-                
+
+                /*
                 int c;
 
                 while ((c = stdin.ReadByte()) != -1)
@@ -363,10 +364,34 @@ namespace etl
                         countR++;
                     }
                 }
+                */
+
+                byte[] buf = new byte[1024^2];
+                int count;
+                int i;
+                byte c;
+
+                while ((count = stdin.Read(buf, 0, buf.Length)) > 0)
+                {
+                    for (i = 0; i < count; i++)
+                    {
+                        c = buf[i];
+
+                        if (c == '\n')
+                        {
+                            countN++;
+                        }
+                        if (c == '\r')
+                        {
+                            countR++;
+                        }
+                    }
+                }
 
                 Console.Write(countN);
                 Console.Write(" ");
                 Console.Write(countR);
+                Console.WriteLine();
             }
         }
     }
