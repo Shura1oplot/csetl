@@ -24,12 +24,6 @@ namespace etl
 
             if (args[0] == "cat")
             {
-                Cat(args[1..]);
-                return;
-            }
-
-            if (args[0] == "cat")
-            {
                 if (args.Length < 2)
                 {
                     PrintHelp();
